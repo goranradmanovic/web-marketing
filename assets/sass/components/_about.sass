@@ -1,0 +1,161 @@
+@use '~/assets/sass/abstracts/index.sass' as abs
+
+.about
+	display: grid
+	grid-template-columns: 1fr
+	grid-template-rows: repeat(3, 1fr)
+	justify-items: center
+	gap: 4rem
+	height: 100lh
+	padding-inline: abs.$padding-inline
+	padding-block: 4rem
+	background-color: abs.$color-light-gray
+
+	& .about__title
+		grid-row: 1
+		display: flex
+		align-items: center
+		gap: 2rem
+
+		& h2
+			margin: unset
+			font-size: 3.5rem
+			font-weight: abs.$font-weight-600
+
+			@supports (background-clip:text) or (-webkit-background-clip:text)
+				color: transparent
+				background-clip: text
+				-webkit-background-clip: text
+				background-image: linear-gradient(to right, #13151d, #2d2643, #5c3060, #95326e, #cf3269)
+				background-size: cover
+				background-position: center
+
+		& img
+			height: 58px
+
+	& .about__schema
+		box-sizing: border-box
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: space-between
+		gap: 2rem
+		width: 1596px
+		height: 1062px
+		padding-block: 4rem
+		padding-inline: .5rem
+		background: url('public/images/sections/schema.avif') center center no-repeat, url('public/images/icons/grid-pattern.svg')
+		background-size: 95%, auto
+		background-color: abs.$color-dark-gray
+
+		& div
+			display: flex
+			flex-direction: column
+			align-items: center
+			gap: 2rem
+
+			& p
+				width: 60%
+				margin: unset
+				font-size: 2.25rem
+				font-weight: abs.$font-weight-300
+				line-height: 1.1
+				text-align: center
+				color: abs.$color-white
+
+			& h2
+				margin: unset
+				font-size: 3.5rem
+				font-weight: abs.$font-weight-600
+
+				@supports (background-clip:text) or (-webkit-background-clip:text)
+					color: transparent
+					background-clip: text
+					-webkit-background-clip: text
+					background-image: linear-gradient(to right, #ffffff, #e5d4f0, #dca4d2, #d970a5, #cf3269)
+					background-size: cover
+					background-position: center
+
+		& .cta
+			background-color: abs.$color-red
+
+	& .about__media
+		box-sizing: border-box
+		width: 100%
+		padding-inline: 4rem
+
+		& h2
+			width: 40%
+			margin-top: unset
+			margin-bottom: 4rem
+			font-size: 3.5rem
+			font-weight: abs.$font-weight-600
+			line-height: 1.1
+
+			@supports (background-clip:text) or (-webkit-background-clip:text)
+				color: transparent
+				background-clip: text
+				-webkit-background-clip: text
+				background-image: linear-gradient(to right, #13151d, #95326e, #cf3269)
+				background-size: cover
+				background-position: center
+
+		& .about__media_companies
+			display: flex
+			justify-content: space-between
+			align-items: center
+
+@media screen and (max-width: 1440px)
+	.about
+
+		& .about__schema
+			width: 100%
+
+		& .about__media
+			padding-inline: unset
+
+@media screen and (max-width: 1024px)
+	.about
+		padding-inline: abs.$spacing-unit
+
+		& .about__media
+			& h2
+				width: 100%
+				font-size: 3rem
+
+
+@media screen and (max-width: 768px)
+	.about
+		& .about__schema
+			& div
+				& p
+					width: 100%
+
+@media screen and (max-width: 425px)
+	.about
+		height: 90lh
+
+		& .about__title
+			flex-direction: column
+
+			img
+				width: 100%
+		& .about__schema
+			height: 884px
+
+			& div
+				& h2
+					text-align: center
+
+		& .about__media
+			& h2
+				text-align: center
+				
+			& .about__media_companies
+				flex-wrap: wrap
+				gap: 1rem
+
+
+
+
+

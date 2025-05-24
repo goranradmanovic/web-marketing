@@ -1,0 +1,16 @@
+@use '~/assets/sass/abstracts/index.sass' as abs
+
+.awards
+	display: grid
+	grid-template-columns: 1fr
+	grid-template-rows: repeat(3, 1fr)
+	justify-items: center
+	gap: 4rem
+	padding-inline: abs.$padding-inline
+	padding-block: 4rem
+
+	& .awards__title_cta
+		display: flex
+		justify-content: space-between
+		align-content: center
+		width: 100%

@@ -4,5 +4,8 @@
 		<SectionCards />
 		<SectionMentor />
 		<SectionWebinar />
+		<SectionStories />
+		<SectionAbout />
+		<SectionAwards />
 	</main>
 </template>
