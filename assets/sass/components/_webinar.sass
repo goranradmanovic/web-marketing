@@ -1,0 +1,113 @@
+@use '~/assets/sass/abstracts/index.sass' as abs
+
+.webinar
+	display: grid
+	grid-template-columns: 1fr
+	grid-template-rows: 2fr
+	position: relative
+	z-index: 1
+	height: 1029px
+	padding-inline: abs.$padding-inline
+	padding-top: 2rem
+	background-size: contain
+	background-position: top right
+	background-repeat: no-repeat
+	background-image: url('public/images/laptop.avif')
+
+	&:before
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		z-index: -1
+		width: 100%
+		height: 100%
+		opacity: .5
+		background-image: linear-gradient(to right bottom, #ffffff, #f0f0f3, #e0e1e7, #d0d2db, #bfc4cf, #b8bdcf, #b4b5ce, #b2adcc, #c5a7cd, #dd9fc4, #f298b0, #ff9494)
+
+	&:after
+		content: ''
+		position: absolute
+		top: 0
+		left: calc(50% - 4rem)
+		z-index: -1
+		width: 6rem
+		height: 100%
+		background-image: linear-gradient(to bottom, #e5e7ec, #e2e5eb, #e0e3ea, #dde0e8, #dbdee7, #dadce6, #d8dbe6, #d7d9e5, #d7d7e5, #d7d5e5, #d8d3e4, #d9d1e3)
+		mask-image: linear-gradient(to left, transparent, #FFF 2.5rem)
+
+	& .webinar__cards
+		display: flex
+		justify-content: flex-start
+		align-items: center
+		gap: 2rem
+
+		& .webinar__card
+			width: 400px
+			height: 690px
+			padding: 4rem
+			border-radius: (abs.$border-radius-base * 3)
+			background-image: linear-gradient(to bottom, #e6e9ed, #e6e8ec, #e7e7ec, #e8e7eb, #e8e6ea, #e9e5ea, #e9e5e9, #eae4e8, #ebe3e8, #ece3e7, #ede2e6, #eee2e5)
+
+
+			& h2
+				margin-bottom: 4rem
+				font-size: 3.5rem
+				font-weight: abs.$font-weight-600
+				line-height: 1.15
+				text-wrap: balance
+
+				@supports (background-clip:text) or (-webkit-background-clip:text)
+					color: transparent
+					background-clip: text
+					-webkit-background-clip: text
+					background-image: linear-gradient(to right bottom, #13151d, #95326e, #cf3269)
+					background-size: cover
+					background-position: center
+
+			& .webinar__card_list
+				padding: unset
+
+				& li
+					margin-top: 1.25rem
+					font-size: 1.75rem
+					font-weight: abs.$font-weight-600
+					line-height: 1.3
+
+@media screen and (max-width: 1440px)
+	.webinar
+		&:after
+			left: calc(37% - 4rem)
+
+@media screen and (max-width: 1024px)
+	.webinar
+		padding-inline: abs.$spacing-unit
+
+		&:after
+			content: unset
+
+		& .webinar__cards
+			align-items: flex-start
+
+			& .webinar__card
+				width: 50%
+				height: auto
+
+@media screen and (max-width: 768px)
+	.webinar
+		height: auto
+		background-image: unset
+
+		& .webinar__cards
+			flex-direction: column
+
+			& .webinar__card
+				box-sizing: border-box
+				width: 100%
+				padding: 1rem
+
+				& .webinar__card_list
+					padding-left: 2rem
+
+		& .cta
+			margin-top: 2rem

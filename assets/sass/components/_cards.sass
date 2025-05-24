@@ -1,0 +1,133 @@
+@use '~/assets/sass/abstracts/index.sass' as abs
+
+.cards
+	display: flex
+	justify-content: center
+	align-items: center
+	padding-inline: abs.$padding-inline
+	padding-block: 10rem
+	background-image: url('public/images/yt.avif')
+	background-repeat: no-repeat
+	background-position: 101% 87%
+
+	.cards_wrapper
+		display: grid
+		grid-template-columns: repeat(3, 1fr)
+		place-items: center
+		place-content: center
+		gap: 2rem
+		width: calc(calc(517px * 3) + 32px)
+
+		& .card
+			box-sizing: border-box
+			position: relative
+			display: flex
+			justify-content: center
+			flex-direction: column
+			gap: 2rem
+			width: 517px
+			height: 400px
+			padding: 4rem
+			border-radius: (abs.$border-radius-base * 3)
+			text-wrap: pretty
+			background-color: abs.$color-light-gray
+
+			&:nth-child(1)
+				font-size: 3.5rem
+				font-weight: abs.$font-weight-500
+				color: abs.$color-white
+				background-image: linear-gradient(to right top, #ff9494, #f47e87, #e9677b, #dc4e71, #cf3269)
+
+			&:nth-child(2)
+				grid-column: span 2
+				min-width: calc(517px * 2 + 32px)
+				background-size: contain
+				background-position: center right
+				background-repeat: no-repeat
+				background-image: url('public/images/card-img.avif')
+
+				& p
+					width: 600px
+					font-size: 2rem
+					font-weight: abs.$font-weight-400
+					line-height: 1.2
+
+					& strong
+						font-size: 2rem
+
+			&:nth-child(7)
+				& p
+					& strong
+						font-size: 2.125rem
+						font-weight: abs.$font-weight-700
+						
+						@supports (background-clip:text) or (-webkit-background-clip:text)
+							color: transparent
+							background-clip: text
+							-webkit-background-clip: text
+							background-image: linear-gradient(to bottom, #cf3269, #dc4e71, #e9677b, #f47e87, #ff9494)
+							background-size: cover
+							background-position: center
+
+			&:nth-child(8)
+				background-color: transparent
+
+			& img
+				width: 70px
+				height: 70px
+
+			& p
+
+				& strong
+					font-size: 1.75rem
+					font-weight: abs.$font-weight-700
+					color: abs.$color-black
+
+@media screen and (max-width: 1440px)
+	.cards
+		background-position-y: 90%
+
+		& .cards_wrapper
+			width: 100%
+
+			& .card
+				width: 100%
+
+				&:nth-child(2)
+					grid-column: span 3
+					grid-row: 2
+					width: 100%
+
+@media screen and (max-width: 1024px)
+	.cards
+		padding-inline: abs.$spacing-unit
+		padding-block: abs.$spacing-unit
+		background-position-y: 99.5%
+
+		& .cards_wrapper
+			& .card
+				width: 100%
+				min-width: 304px
+				padding: 2rem
+
+				&:nth-child(2)
+					width: 100%
+					min-width: unset
+
+@media screen and (max-width: 768px)
+	.cards
+		background-position-y: 100%
+
+		& .cards_wrapper
+			& .card
+				grid-column: span 3
+
+				&:nth-child(2)
+					& p
+						width: 100%
+						font-size: 1.5rem
+
+
+@media screen and (max-width: 425px)
+	.cards
+		background-position-x: 1rem

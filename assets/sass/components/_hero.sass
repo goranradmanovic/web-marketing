@@ -1,0 +1,250 @@
+@use '~/assets/sass/abstracts/index.sass' as abs
+
+.hero
+	display: grid
+	grid-template-columns: 40% 1fr
+	grid-template-rows: 3rem 1fr
+	position: relative
+	height: 925px
+	padding-inline: abs.$padding-inline
+	padding-top: 2rem
+	background-size: contain
+	background-position: 114% 0
+	background-repeat: no-repeat
+	background-image: url('public/images/hero.avif')
+	background-color: abs.$color-black
+
+	&:after
+		content: ''
+		position: absolute
+		top: 0
+		left: 41%
+		z-index: 0
+		width: 8rem
+		height: 100%
+		background-color: abs.$color-black
+		mask-image: linear-gradient(to left, transparent, #000 8rem)
+
+	& .nav
+		grid-row: 1
+		grid-column: span 2 
+		& .nav__link
+			& .logo
+				width: 21.875rem
+				height: 2.5rem
+
+	& .hero__wrapper_left
+		position: relative
+		z-index: 1
+		grid-row: 2
+		grid-column: 1
+		display: flex
+		flex-direction: column
+		gap: 3rem
+		padding-right: abs.$spacer-lg
+		background-color: abs.$color-black
+
+		& div
+			& .title
+				margin-top: (abs.$spacer-xl * 4)
+				font-size: abs.$main-title
+				font-weight: abs.$font-weight-800
+				text-transform: uppercase
+
+				@supports (background-clip:text) or (-webkit-background-clip:text)
+					color: transparent
+					background-clip: text
+					-webkit-background-clip: text
+					background-image: linear-gradient(to bottom, #fff, #e5d4f0, #dca4d2, #d970a5, #cf3269)
+					background-size: cover
+					background-position: center
+
+			& .subtitle
+				margin-top: unset
+				font-size: abs.$main-subtitle
+				font-weight: abs.$font-weight-400
+				color: abs.$color-white
+
+		& .info__date
+			display: flex
+			flex-direction: column
+			justify-content: center
+			color: abs.$color-white
+
+			& small
+				font-size: 1.25rem
+				font-weight: abs.$font-weight-300
+
+			& .info__date_day
+				font-size: 3rem
+				font-weight: abs.$font-weight-400
+
+			& .info__date_time
+				font-size: 1.75rem
+				font-weight: abs.$font-weight-200
+
+			& button
+				display: flex
+				align-items: center
+				gap: .25rem
+				width: 96px
+				height: 35px
+				border: none
+				margin-top: abs.$spacer-sm
+				font-size: .8rem
+				cursor: pointer
+				background-color: transparent
+
+	& .hero__wrapper_right
+		grid-row: span 2
+		grid-column: 2
+		display: flex
+		flex-direction: column
+		justify-content: flex-end
+		gap: 1rem
+		padding-left: 4rem
+		padding-bottom: 4rem
+		color: abs.$color-white
+
+		& .text
+			margin-bottom: abs.$spacer-sm
+			font-size: 1.5rem
+			font-weight: abs.$font-weight-400
+			line-height: 1.25
+
+			& strong
+				font-weight: abs.$font-weight-700
+
+		& .divider
+			width: 100%
+			height: 3px
+			margin: unset
+			border: none
+			background-image: linear-gradient(to right, #0051ff, #9535d7, #be1aae, #ce1a88, #cf3269)
+
+		& .texts
+			display: flex
+			justify-content: space-between
+			align-items: center
+			gap: 6rem
+			text-wrap: pretty
+
+			& p
+				font-size: 1.25rem
+				font-weight: abs.$font-weight-400
+				line-height: 1.25
+
+@media screen and (max-width: 1440px)
+	.hero
+		background-position: 268% 0
+
+		& .hero__wrapper_right
+			& .texts
+				gap: 4rem
+
+@media screen and (max-width: 1024px)
+	.hero
+		padding-inline: abs.$spacing-unit
+		background-position: 412px 0
+
+		&:after
+			left: 40%
+
+		& .hero__wrapper_left
+			padding-right: unset	
+			& div
+				& .title
+					margin-top: 2rem
+
+			& .cta
+				width: 100%
+
+		& .hero__wrapper_right
+			& .texts
+				gap: 1rem
+
+@media screen and (max-width: 768px)
+	.hero
+		background-size: cover
+		background-position: 308px 0
+
+		& .nav
+			& .nav__link
+				& .logo
+					width: 90%
+
+		& .hero__wrapper_left
+			& div
+				& .title
+					font-size: 3.6rem
+
+				& .subtitle
+					font-size: 2rem
+
+		& .hero__wrapper_right
+			padding-left: 2rem
+
+			& .texts
+				gap: .5rem
+
+				& p
+					font-size: 1rem
+
+@media screen and (max-width: 425px)
+	.hero
+		background-size: cover
+		background-position: 308px 0
+
+		& .nav
+			& .nav__link
+				& .logo
+					width: 100%
+
+		& .hero__wrapper_left
+			& div
+				& .title
+					font-size: 3.6rem
+
+				& .subtitle
+					font-size: 2rem
+
+		& .hero__wrapper_right
+			padding-left: 2rem
+
+			& .texts
+				gap: .5rem
+
+				& p
+					font-size: 1rem
+
+@media screen and (max-width: 425px)
+	.hero
+		height: auto
+		grid-template-columns: 1fr
+		background-image: unset
+
+		&:after
+			content: unset
+
+		& .hero__wrapper_left
+			grid-column: 1
+			gap: 1.5rem
+			text-align: center
+
+			& .info__date
+				align-items: center
+
+		& .hero__wrapper_right
+			grid-column: 1
+			padding-left: unset
+			padding-bottom: 1rem
+
+			& .text
+				text-align: center
+
+			& .texts
+				flex-direction: column
+				
+				& p 
+					margin-block: unset
+					font-size: .8rem

@@ -1,0 +1,21 @@
+// 1. Abstracts (Variables, Mixins, Functions) - Load these first!
+//    We use 'as *' here because main.sass itself might use vars directly,
+//    and we want to avoid redundant prefixes in this top-level file.
+//    However, as shown above, each sub-module will still @use 'abstracts/index' with a namespace.
+@use 'abstracts/index.sass' as *
+
+// 2. Base Styles (Resets, Typography)
+@use 'base/index.sass' as *
+
+// 3. Layout Styles (Global structural elements)
+@use 'layout/index.sass' as *
+
+// 4. Components (Reusable UI elements)
+@use 'components/index.sass' as *
+
+// 5. Pages (Page-specific styles)
+@use 'pages/index.sass' as *
+
+// Any global styles that don't fit into the above categories,
+// or specific overrides/utilities, can go here.
+
