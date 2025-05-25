@@ -1,0 +1,102 @@
+@use '~/assets/sass/abstracts/index.sass' as abs
+
+.footer
+	display: grid
+	grid-template-columns: repeat(3, 1fr)
+	grid-template-rows: 1fr
+	justify-items: center
+	gap: 4rem
+	padding-inline: abs.$padding-inline
+	padding-block: 4rem
+	max-width: 1920px
+	margin: 0 auto
+
+	& .footer__contact, & .footer__info
+		display: grid
+		grid-template-columns: subgrid
+		grid-column: span 3
+		padding-block: 1rem
+
+	& .footer__contact
+		grid-row: 1
+		border-bottom: 1px solid #DBDBDB
+
+		& .footer__contact_logo_copy
+			& img
+				width: 272px
+
+			& p
+				margin-top: 1.5rem
+				color: abs.$color-lighter-gray
+
+		& .footer__contact_socials
+			display: flex
+			gap: 1rem
+
+			& img
+				height: .9rem
+				aspect-ratio: 1
+
+		& .footer__contact_address
+			text-align: right
+
+			& h3
+				margin-top: unset
+				margin-bottom: 2rem
+				font-size: 1rem
+				font-weight: abs.$font-weight-400
+
+			&  button
+				width: 120px
+				height: 40px
+				border-style: solid
+				border-radius: abs.$border-radius-base
+				border-color: abs.$color-red
+				cursor: pointer
+				color: abs.$color-red
+				background-color: abs.$color-white
+
+	& .footer__info
+		grid-row: 2
+
+		& .footer__info_risk, & .footer__info_disclaimers, & .footer__info_legal
+			& h3
+				margin-top: unset
+				font-size: 1.125rem
+				font-weight: abs.$font-weight-400
+
+			& p
+				font-weight: abs.$font-weight-300
+				line-height: 1.15
+				color: abs.$color-lighter-gray
+
+@media screen and (max-width: 1024px)
+	.footer
+		padding-inline: abs.$spacing-unit
+		padding-block: 3rem
+
+@media screen and (max-width: 768px)
+	.footer
+		gap: 1rem
+
+		& .footer__contact
+
+			& .footer__contact_socials
+				flex-wrap: wrap
+				height: 2rem
+
+@media screen and (max-width: 425px)
+	.footer
+		grid-template-columns: 1fr
+
+		& .footer__contact, & .footer__info
+			grid-column: 1
+
+		& .footer__contact
+			& .footer__contact_logo_copy, & .footer__contact_address
+				display: flex
+				flex-direction: column
+				align-items: center
+
+			& .footer__contact_socials
+				justify-content: center

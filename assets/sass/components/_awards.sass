@@ -1,16 +1,109 @@
 @use '~/assets/sass/abstracts/index.sass' as abs
 
 .awards
-	display: grid
-	grid-template-columns: 1fr
-	grid-template-rows: repeat(3, 1fr)
+	display: flex
+	flex-direction: column
+	align-items: center
 	justify-items: center
 	gap: 4rem
 	padding-inline: abs.$padding-inline
-	padding-block: 4rem
+	padding-block: 6rem
 
 	& .awards__title_cta
 		display: flex
 		justify-content: space-between
-		align-content: center
+		align-items: center
 		width: 100%
+		gap: 1rem
+
+		& h2
+			width: 490px
+			margin: unset
+			font-size: 3.5rem
+			font-weight: abs.$font-weight-600
+			line-height: 1.1
+
+			@supports (background-clip:text) or (-webkit-background-clip:text)
+				color: transparent
+				background-clip: text
+				-webkit-background-clip: text
+				background-image: linear-gradient(to right, #13151d, #2d2643, #5c3060, #95326e, #cf3269)
+				background-size: cover
+				background-position: center
+		& p
+			font-size: 1.5
+			font-weight: abs.$font-weight-300
+
+		& .cta
+			background-color: abs.$color-red
+
+	& .awards__list
+		display: flex
+		justify-content: space-between
+		align-items: baseline
+		gap: 2rem
+		width: 100%
+
+	& .awards__cta_box
+		display: flex
+		justify-content: space-between
+		align-items: center
+		gap: 2rem
+		width: 100%
+		height: 214px
+		padding-inline: 3rem
+		padding-block: 1rem
+		border-radius: (abs.$border-radius-base * 3)
+		background-image: linear-gradient(to right bottom, #ff9494, #f47e87, #e9677b, #dc4e71, #cf3269)
+
+		& h2
+			width: 890px
+			margin: unset
+			font-size: 3.5rem
+			font-weight: abs.$font-weight-600
+			line-height: 1.1
+			color: abs.$color-white
+
+		& .cta
+			width: 330px
+
+@media screen and (max-width: 1024px)
+	.awards
+		padding-inline: abs.$spacing-unit
+
+		& .awards__list
+			flex-wrap: wrap
+			gap: 1rem
+
+			& img
+				width: 20%
+				aspect-ratio: 1
+
+@media screen and (max-width: 768px)
+	.awards
+
+		& .awards__title_cta, & .awards__cta_box
+			flex-direction: column
+			height: auto
+			text-align: center
+
+			& h2
+				width: 100%
+				font-size: 3rem
+
+@media screen and (max-width: 425px)
+	.awards
+
+		& .awards__title_cta, & .awards__cta_box
+
+			& .cta
+				width: 100%
+
+		& .awards__list
+
+			& img
+				width: 16%
+
+		& .awards__cta_box
+			height: auto
+			padding: 1rem

@@ -31,7 +31,7 @@
 		top: 0
 		left: calc(50% - 5rem)
 		z-index: -1
-		width: 6rem
+		width: 10rem
 		height: 100%
 		background-image: linear-gradient(to bottom, #e5e7ec, #e2e5eb, #e0e3ea, #dde0e8, #dbdee7, #dadce6, #d8dbe6, #d7d9e5, #d7d7e5, #d7d5e5, #d8d3e4, #d9d1e3)
 		mask-image: linear-gradient(to left, transparent, #FFF 2.5rem)
@@ -43,17 +43,18 @@
 		gap: 2rem
 
 		& .webinar__card
-			width: 400px
-			height: 690px
-			padding: 4rem
+			width: 520px
+			height: 694px
+			padding: 3rem
 			border-radius: (abs.$border-radius-base * 3)
 			background-image: linear-gradient(to bottom, #e6e9ed, #e6e8ec, #e7e7ec, #e8e7eb, #e8e6ea, #e9e5ea, #e9e5e9, #eae4e8, #ebe3e8, #ece3e7, #ede2e6, #eee2e5)
 
 
 			& h2
-				margin-bottom: 4rem
+				margin-top: unset
+				margin-bottom: 2rem
 				font-size: 3.5rem
-				font-weight: abs.$font-weight-600
+				font-weight: abs.$font-weight-500
 				line-height: 1.15
 				text-wrap: balance
 
@@ -66,7 +67,7 @@
 					background-position: center
 
 			& .webinar__card_list
-				padding: unset
+				padding-left: 1.5rem
 
 				& li
 					margin-top: 1.25rem
@@ -102,7 +103,6 @@
 			flex-direction: column
 
 			& .webinar__card
-				box-sizing: border-box
 				width: 100%
 				padding: 1rem
 
@@ -110,4 +110,21 @@
 					padding-left: 2rem
 
 		& .cta
+			place-self: center
 			margin-top: 2rem
+
+@media screen and (max-width: 425px)
+	.webinar
+		& .webinar__cards
+			& .webinar__card
+
+				& h2
+					font-size: 2.5rem
+					text-wrap: pretty
+
+				& .webinar__card_list
+					& li
+						font-size: 1.25rem
+
+		& .cta
+			width: 100%

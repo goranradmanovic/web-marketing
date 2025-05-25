@@ -8,6 +8,7 @@
 	height: 925px
 	padding-inline: abs.$padding-inline
 	padding-top: 2rem
+	overflow: hidden
 	background-size: contain
 	background-position: 114% 0
 	background-repeat: no-repeat
@@ -42,6 +43,9 @@
 		flex-direction: column
 		gap: 3rem
 		padding-right: abs.$spacer-lg
+		opacity: 0
+		animation-delay: 1s
+		animation: fadeIn 4s forwards
 		background-color: abs.$color-black
 
 		& div
@@ -106,8 +110,11 @@
 		flex-direction: column
 		justify-content: flex-end
 		gap: 1rem
+		width: 100%
 		padding-left: 4rem
 		padding-bottom: 4rem
+		animation-delay: 1s
+		animation: 4s slide-left
 		color: abs.$color-white
 
 		& .text

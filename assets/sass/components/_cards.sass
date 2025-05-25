@@ -19,7 +19,6 @@
 		width: calc(calc(517px * 3) + 32px)
 
 		& .card
-			box-sizing: border-box
 			position: relative
 			display: flex
 			justify-content: center
@@ -121,6 +120,9 @@
 		& .cards_wrapper
 			& .card
 				grid-column: span 3
+				flex-direction: row
+				align-items: center
+				height: auto
 
 				&:nth-child(2)
 					& p
@@ -131,3 +133,16 @@
 @media screen and (max-width: 425px)
 	.cards
 		background-position-x: 1rem
+
+		& .cards_wrapper
+			& .card
+				flex-direction: column
+
+				& p
+					& strong
+						font-size: 1.25rem
+
+				&:nth-child(7)
+					& p
+						& strong
+							font-size: 1.75rem
