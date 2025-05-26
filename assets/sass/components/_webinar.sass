@@ -37,9 +37,7 @@
 		mask-image: linear-gradient(to left, transparent, #FFF 2.5rem)
 
 	& .webinar__cards
-		display: flex
-		justify-content: flex-start
-		align-items: center
+		@include abs.flex($align: center)
 		gap: 2rem
 
 		& .webinar__card
@@ -57,14 +55,7 @@
 				font-weight: abs.$font-weight-500
 				line-height: 1.15
 				text-wrap: balance
-
-				@supports (background-clip:text) or (-webkit-background-clip:text)
-					color: transparent
-					background-clip: text
-					-webkit-background-clip: text
-					background-image: linear-gradient(to right bottom, #13151d, #95326e, #cf3269)
-					background-size: cover
-					background-position: center
+				@include abs.clip-text(linear-gradient(to right bottom, #13151d, #95326e, #cf3269))
 
 			& .webinar__card_list
 				padding-left: 1.5rem
@@ -78,7 +69,7 @@
 @media screen and (max-width: 1440px)
 	.webinar
 		&:after
-			left: calc(37% - 4rem)
+			left: calc(35% - 4rem)
 
 @media screen and (max-width: 1024px)
 	.webinar

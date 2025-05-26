@@ -5,12 +5,11 @@
 	grid-template-columns: 40% 1fr
 	grid-template-rows: 3rem 1fr
 	position: relative
-	height: 925px
 	padding-inline: abs.$padding-inline
-	padding-top: 2rem
+	padding-block: 2rem
 	overflow: hidden
 	background-size: contain
-	background-position: 114% 0
+	background-position: right top
 	background-repeat: no-repeat
 	background-image: url('public/images/sections/hero.avif')
 	background-color: abs.$color-black
@@ -19,18 +18,21 @@
 		content: ''
 		position: absolute
 		top: 0
-		left: 41%
+		left: 0
 		z-index: 0
-		width: 8rem
+		width: 46%
 		height: 100%
 		background-color: abs.$color-black
-		mask-image: linear-gradient(to left, transparent, #000 8rem)
+		mask-image: linear-gradient(to left, transparent, #000 2rem)
 
 	& .nav
 		grid-row: 1
 		grid-column: span 2 
+		
 		& .nav__link
 			& .logo
+				position: relative
+				z-index: 1
 				width: 21.875rem
 				height: 2.5rem
 
@@ -39,8 +41,7 @@
 		z-index: 1
 		grid-row: 2
 		grid-column: 1
-		display: flex
-		flex-direction: column
+		@include abs.flex($direction: column, $justify: center)
 		gap: 3rem
 		padding-right: abs.$spacer-lg
 		opacity: 0
@@ -54,25 +55,17 @@
 				font-size: abs.$main-title
 				font-weight: abs.$font-weight-800
 				text-transform: uppercase
-
-				@supports (background-clip:text) or (-webkit-background-clip:text)
-					color: transparent
-					background-clip: text
-					-webkit-background-clip: text
-					background-image: linear-gradient(to bottom, #fff, #e5d4f0, #dca4d2, #d970a5, #cf3269)
-					background-size: cover
-					background-position: center
+				@include abs.clip-text(linear-gradient(to bottom, #fff, #e5d4f0, #dca4d2, #d970a5, #cf3269))
 
 			& .subtitle
 				margin-top: unset
 				font-size: abs.$main-subtitle
 				font-weight: abs.$font-weight-400
+				line-height: 1.2
 				color: abs.$color-white
 
 		& .info__date
-			display: flex
-			flex-direction: column
-			justify-content: center
+			@include abs.flex($direction: column, $justify: center)
 			color: abs.$color-white
 
 			& small
@@ -82,14 +75,15 @@
 			& .info__date_day
 				font-size: 3rem
 				font-weight: abs.$font-weight-400
+				text-transform: uppercase
 
 			& .info__date_time
+				margin-block: .25rem
 				font-size: 1.75rem
 				font-weight: abs.$font-weight-200
 
 			& button
-				display: flex
-				align-items: center
+				@include abs.flex($align: center)
 				gap: .25rem
 				width: 96px
 				height: 35px
@@ -106,12 +100,10 @@
 	& .hero__wrapper_right
 		grid-row: span 2
 		grid-column: 2
-		display: flex
-		flex-direction: column
-		justify-content: flex-end
+		@include abs.flex($direction: column, $justify: flex-end)
 		gap: 1rem
 		width: 100%
-		padding-left: 4rem
+		padding-left: 6rem
 		padding-bottom: 4rem
 		animation-delay: 1s
 		animation: 4s slide-left
@@ -134,9 +126,7 @@
 			background-image: linear-gradient(to right, #0051ff, #9535d7, #be1aae, #ce1a88, #cf3269)
 
 		& .texts
-			display: flex
-			justify-content: space-between
-			align-items: center
+			@include abs.flex($align: center, $justify: space-between)
 			gap: 6rem
 			text-wrap: pretty
 
@@ -147,19 +137,21 @@
 
 @media screen and (max-width: 1440px)
 	.hero
-		background-position: 268% 0
+		background-position-x: 480px
+		
+		&:after
+			width: 49%
 
 		& .hero__wrapper_right
 			& .texts
-				gap: 4rem
+				gap: 1rem
 
 @media screen and (max-width: 1024px)
 	.hero
 		padding-inline: abs.$spacing-unit
-		background-position: 412px 0
 
 		&:after
-			left: 40%
+			width: 50%
 
 		& .hero__wrapper_left
 			padding-right: unset	
@@ -177,7 +169,10 @@
 @media screen and (max-width: 768px)
 	.hero
 		background-size: cover
-		background-position: 308px 0
+		background-position-x: 200px
+		
+		&:after
+			width: 45%
 
 		& .nav
 			& .nav__link
@@ -203,39 +198,16 @@
 
 @media screen and (max-width: 425px)
 	.hero
-		background-size: cover
-		background-position: 308px 0
-
-		& .nav
-			& .nav__link
-				& .logo
-					width: 100%
-
-		& .hero__wrapper_left
-			& div
-				& .title
-					font-size: 3.6rem
-
-				& .subtitle
-					font-size: 2rem
-
-		& .hero__wrapper_right
-			padding-left: 2rem
-
-			& .texts
-				gap: .5rem
-
-				& p
-					font-size: 1rem
-
-@media screen and (max-width: 425px)
-	.hero
-		height: auto
 		grid-template-columns: 1fr
 		background-image: unset
 
 		&:after
 			content: unset
+
+		& .nav
+			& .nav__link
+				& .logo
+					width: 100%
 
 		& .hero__wrapper_left
 			grid-column: 1
@@ -259,3 +231,4 @@
 				& p 
 					margin-block: unset
 					font-size: .8rem
+					text-align: center

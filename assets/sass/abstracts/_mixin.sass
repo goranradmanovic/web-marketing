@@ -1,0 +1,17 @@
+// Flexbox Mixin
+// Usage: @include flex($direction: column, $justify: space-between);
+@mixin flex($direction: row, $justify: flex-start, $align: normal)
+  display: flex
+  flex-direction: $direction
+  justify-content: $justify
+  align-items: $align
+
+// Background-clip:text Mixin 
+@mixin clip-text($bg-img: unset)
+  @supports (background-clip:text) or (-webkit-background-clip:text)
+    color: transparent
+    background-clip: text
+    -webkit-background-clip: text
+    background-image: $bg-img
+    background-size: cover
+    background-position: center

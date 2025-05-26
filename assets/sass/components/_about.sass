@@ -1,46 +1,27 @@
 @use '~/assets/sass/abstracts/index.sass' as abs
 
 .about
-	//display: grid
-	//grid-template-columns: 1fr
-	//grid-template-rows: repeat(3, 1fr)
-	//justify-items: center
-	display: flex
-	flex-direction: column
-	align-items: center
+	@include abs.flex($direction: column, $align: center)
 	gap: 4rem
-	//height: 100lh
 	padding-inline: abs.$padding-inline
 	padding-block: 4rem
 	background-color: abs.$color-light-gray
 
 	& .about__title
-		//grid-row: 1
-		display: flex
-		align-items: center
+		@include abs.flex($align: center)
 		gap: 2rem
 
 		& h2
 			margin: unset
 			font-size: 3.5rem
 			font-weight: abs.$font-weight-600
-
-			@supports (background-clip:text) or (-webkit-background-clip:text)
-				color: transparent
-				background-clip: text
-				-webkit-background-clip: text
-				background-image: linear-gradient(to right, #13151d, #2d2643, #5c3060, #95326e, #cf3269)
-				background-size: cover
-				background-position: center
+			@include abs.clip-text(linear-gradient(to right, #13151d, #2d2643, #5c3060, #95326e, #cf3269))
 
 		& img
 			height: 58px
 
 	& .about__schema
-		display: flex
-		flex-direction: column
-		align-items: center
-		justify-content: space-between
+		@include abs.flex($direction: column, $justify: space-between, $align: center)
 		gap: 2rem
 		width: 1596px
 		height: 1062px
@@ -51,9 +32,7 @@
 		background-color: abs.$color-dark-gray
 
 		& div
-			display: flex
-			flex-direction: column
-			align-items: center
+			@include abs.flex($direction: column, $align: center)
 			gap: 2rem
 
 			& p
@@ -69,14 +48,7 @@
 				margin: unset
 				font-size: 3.5rem
 				font-weight: abs.$font-weight-600
-
-				@supports (background-clip:text) or (-webkit-background-clip:text)
-					color: transparent
-					background-clip: text
-					-webkit-background-clip: text
-					background-image: linear-gradient(to right, #ffffff, #e5d4f0, #dca4d2, #d970a5, #cf3269)
-					background-size: cover
-					background-position: center
+				@include abs.clip-text(linear-gradient(to right, #ffffff, #e5d4f0, #dca4d2, #d970a5, #cf3269))
 
 		& .cta
 			background-color: abs.$color-red
@@ -92,20 +64,15 @@
 			font-size: 3.5rem
 			font-weight: abs.$font-weight-600
 			line-height: 1.1
-
-			@supports (background-clip:text) or (-webkit-background-clip:text)
-				color: transparent
-				background-clip: text
-				-webkit-background-clip: text
-				background-image: linear-gradient(to right, #13151d, #95326e, #cf3269)
-				background-size: cover
-				background-position: center
+			@include abs.clip-text(linear-gradient(to right, #13151d, #95326e, #cf3269))
 
 		& .about__media_companies
-			display: flex
-			justify-content: space-between
-			align-items: center
+			@include abs.flex($justify: space-between, $align: center)
 			gap: 1rem
+
+			& img
+				width: 80px
+				aspect-ratio: 1
 
 @media screen and (max-width: 1440px)
 	.about
@@ -172,6 +139,3 @@
 	.about
 		& .about__schema
 			height: auto
-
-
-

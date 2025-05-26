@@ -15,9 +15,7 @@
 
 	& .stories__title_cta
 		grid-column: 1
-		display: flex
-		flex-direction: column
-		justify-content: center
+		@include abs.flex($direction: column, $justify: center)
 		gap: 6rem
 
 		& h2
@@ -25,14 +23,7 @@
 			font-size: 4rem
 			font-weight: abs.$font-weight-600
 			line-height: 1.1
-
-			@supports (background-clip:text) or (-webkit-background-clip:text)
-				color: transparent
-				background-clip: text
-				-webkit-background-clip: text
-				background-image: linear-gradient(to right bottom, #13151d, #95326e, #cf3269)
-				background-size: cover
-				background-position: center
+			@include abs.clip-text(linear-gradient(to right bottom, #13151d, #95326e, #cf3269))
 
 	& .stories__content
 		position: relative
@@ -42,8 +33,7 @@
 
 		& .stories__content_card
 			position: absolute
-			display: flex
-			flex-direction: column
+			@include abs.flex($direction: column)
 			gap: 2rem
 			border-radius: (abs.$border-radius-base * 3)
 			padding: 2rem
@@ -139,10 +129,7 @@
 
 		& .stories__content
 			grid-column: 1
-			display: flex
-			flex-direction: column
-			justify-content: center
-			align-items: center
+			@include abs.flex($direction: column, $justify: center, $align: center)
 			gap: 1rem
 
 			& .stories__content_card

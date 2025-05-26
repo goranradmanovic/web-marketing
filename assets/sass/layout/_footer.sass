@@ -36,6 +36,10 @@
 			& img
 				height: .9rem
 				aspect-ratio: 1
+				transition: all 400ms ease-in-out
+
+				&:hover
+					transform: scale(1.1)
 
 		& .footer__contact_address
 			text-align: right
@@ -53,8 +57,13 @@
 				border-radius: abs.$border-radius-base
 				border-color: abs.$color-red
 				cursor: pointer
+				transition: color 400ms ease-in-out, background-color 400ms ease-in-out
 				color: abs.$color-red
 				background-color: abs.$color-white
+
+				&:hover
+					color: abs.$color-white
+					background-color: abs.$color-red
 
 	& .footer__info
 		grid-row: 2
@@ -94,9 +103,7 @@
 
 		& .footer__contact
 			& .footer__contact_logo_copy, & .footer__contact_address
-				display: flex
-				flex-direction: column
-				align-items: center
+				@include abs.flex($direction: column, $align: center)
 
 			& .footer__contact_socials
 				justify-content: center

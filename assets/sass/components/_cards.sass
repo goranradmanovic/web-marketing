@@ -1,9 +1,7 @@
 @use '~/assets/sass/abstracts/index.sass' as abs
 
 .cards
-	display: flex
-	justify-content: center
-	align-items: center
+	@include abs.flex($justify: center, $align: center)
 	padding-inline: abs.$padding-inline
 	padding-block: 10rem
 	background-image: url('public/images/sections/yt.avif')
@@ -20,9 +18,7 @@
 
 		& .card
 			position: relative
-			display: flex
-			justify-content: center
-			flex-direction: column
+			@include abs.flex($direction: column, $justify: center)
 			gap: 2rem
 			width: 517px
 			height: 400px
@@ -59,14 +55,7 @@
 					& strong
 						font-size: 2.125rem
 						font-weight: abs.$font-weight-700
-						
-						@supports (background-clip:text) or (-webkit-background-clip:text)
-							color: transparent
-							background-clip: text
-							-webkit-background-clip: text
-							background-image: linear-gradient(to bottom, #cf3269, #dc4e71, #e9677b, #f47e87, #ff9494)
-							background-size: cover
-							background-position: center
+						@include abs.clip-text(linear-gradient(to bottom, #cf3269, #dc4e71, #e9677b, #f47e87, #ff9494))
 
 			&:nth-child(8)
 				background-color: transparent

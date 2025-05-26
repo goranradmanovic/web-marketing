@@ -5,30 +5,33 @@
 	grid-template-columns: 1fr 38%
 	grid-template-rows: 1fr 1fr
 	align-items: center
+	gap: 1rem
 	position: relative
 	padding-inline: abs.$padding-inline
 	padding-block: 6rem
 	background-position: center left
 	background-repeat: no-repeat
-	background-size: 58%
+	background-position-x: -64px
 	background-image: url('public/images/sections/tope-talking.avif')
 
-	&:before
-		content: ''
-		position: absolute
-		top: 56%
-		left: 0
-		width: 95%
-		height: 3px
-		background-image: linear-gradient(to right, #1cbe8e, #79a745, #ad871b, #ce5c35, #cf3269)
-
 	& .mentor__name
+		position: relative
 		grid-row: 2
 		grid-column: 1
 		align-self: start
 		margin-top: 4rem
 		padding-left: 8rem
 		color: abs.$color-white
+
+		&:before
+			content: ''
+			position: absolute
+			top: -20%
+			left: 0
+			width: 165%
+			height: 3px
+			background-image: linear-gradient(to right, #1cbe8e, #79a745, #ad871b, #ce5c35, #cf3269)
+
 
 		& h2
 			font-size: 2.5rem
@@ -48,14 +51,7 @@
 			font-size: 3.625rem
 			font-weight: abs.$font-weight-600
 			line-height: 1.2
-			
-			@supports (background-clip:text) or (-webkit-background-clip:text)
-				color: transparent
-				background-clip: text
-				-webkit-background-clip: text
-				background-image: linear-gradient(to right bottom, #13151d, #2d2643, #5c3060, #95326e, #cf3269)
-				background-size: cover
-				background-position: center
+			@include abs.clip-text(linear-gradient(to right bottom, #2d2643,  #95326e, #cf3269))
 
 		& p
 			margin-top: unset
@@ -70,43 +66,37 @@
 	& .mentor__award
 		grid-row: 2
 		grid-column: 2
-		display: flex
-		flex-direction: column
+		align-self: start
+		@include abs.flex($direction: column)
 		gap: 4rem
+		margin-top: 4rem
 
 		& .mentor__award_badge
-			display: flex
-			align-items: center
+			@include abs.flex($align: center)
 			gap: 1rem
 			font-size: 1.25rem
 			font-weight: abs.$font-weight-700
 			color: #13151D99
 
+			img
+				width: 94px
+				aspect-ratio: 1
+
 @media screen and (max-width: 1440px)
 	.mentor
-		background-size: contain
-		background-position-x: -600px
-
-		&:before
-			top: 66%
+		background-position-x: -400px
 
 		& .mentor__name
 			margin-top: 1rem
 			padding-left: 2rem
 
+			&:before
+				top: 0%
+
 @media screen and (max-width: 1024px)
 	.mentor
 		padding-inline: abs.$spacing-unit
-		background-position-x: -450px
-
-		&:before
-			top: 60%
-
-		& .mentor__name
-			grid-row: 1
-			place-self: self-start
-			align-self: self-end
-			margin-bottom: 4rem
+		background-position-x: -572px
 
 		& .mentor__award
 			& .cta
@@ -117,13 +107,9 @@
 		grid-template-columns: 1fr
 		grid-template-rows: auto
 		align-items: start
-		gap: 2rem
 		padding-inline: abs.$spacing-unit
 		padding-block: abs.$spacing-unit
 		background-image: unset
-
-		&:before
-			content: unset
 
 		& .mentor__name, & .mentor__info, & .mentor__award
 			grid-column: 1
@@ -137,7 +123,11 @@
 			text-align: center
 			color: abs.$color-black
 
+			&:before
+				content: unset
+
 			& h2
+				margin-top: unset
 				color: abs.$color-black
 
 			& p
@@ -153,8 +143,11 @@
 		& .mentor__award
 			grid-row: 3
 			gap: 1rem
-			flex-direction: row
-			justify-content: space-between
+			align-items: center
+			margin-top: unset
+
+			& .cta
+				width: 26rem
 
 @media screen and (max-width: 425px)
 	.mentor
