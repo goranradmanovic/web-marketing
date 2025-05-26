@@ -5,6 +5,7 @@
 	grid-template-columns: 40% 1fr
 	grid-template-rows: 3rem 1fr
 	position: relative
+	min-height: 954px
 	padding-inline: abs.$padding-inline
 	padding-block: 2rem
 	overflow: hidden
@@ -105,8 +106,9 @@
 		width: 100%
 		padding-left: 6rem
 		padding-bottom: 4rem
+		transform: translateX(100%)
 		animation-delay: 1s
-		animation: 4s slide-left
+		animation: 4s slide-left forwards
 		color: abs.$color-white
 
 		& .text
