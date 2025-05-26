@@ -23,12 +23,12 @@
 	& .about__schema
 		@include abs.flex($direction: column, $justify: space-between, $align: center)
 		gap: 2rem
-		width: 1596px
+		width: 100%
 		height: 1062px
 		padding-block: 4rem
 		padding-inline: .5rem
 		background: url('public/images/sections/schema.avif') center center no-repeat, url('public/images/icons/grid-pattern.svg')
-		background-size: 95%, auto
+		background-size: contain
 		background-color: abs.$color-dark-gray
 
 		& div
@@ -55,7 +55,6 @@
 
 	& .about__media
 		width: 100%
-		padding-inline: 4rem
 
 		& h2
 			width: 40%
